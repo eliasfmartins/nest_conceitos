@@ -13,3 +13,9 @@ GET {{baseUrl}}/
 # @name ConceitosAutomaticoCOntrollerHome
 
 GET {{baseUrl}}/conceitos-automatico
+
+### chamando methodo do service Home
+
+# @name ConceitosServiceExemplo
+
+GET {{baseUrl}}/exemplo
