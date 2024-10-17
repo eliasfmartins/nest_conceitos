@@ -7,8 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
-		const retorno = 'Retorno.'
+    const retorno = 'Retorno.';
     return retorno;
   }
-	
 }

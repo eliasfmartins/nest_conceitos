@@ -6,6 +6,6 @@ import { RecadosModule } from 'src/recados/recados.module';
   imports: [RecadosModule],
   controllers: [AppController],
   providers: [AppService],
-	exports:[],
+  exports: [],
 })
-export class AppModule {} 
+export class AppModule {}
