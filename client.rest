@@ -9,7 +9,7 @@ GET {{baseUrl}}/recados/
 # &user=elias
 
 ### Lista apenas um recado
-GET {{baseUrl}}/recados/4/
+GET {{baseUrl}}/recados/1/
 
 ### Criar um recado
 POST  {{baseUrl}}/recados/
@@ -28,7 +28,7 @@ PATCH  {{baseUrl}}/recados/2/
 Content-Type: application/json
 
   {
-      "texto": "Novo Recado atualizado",
+      "texto": "Novo Recado atualizadossasdas",
       "de": "Joana",
       "para": "joão",
       "lido": false,
@@ -36,7 +36,7 @@ Content-Type: application/json
   }
 
 ### Apaga um recado
-DELETE  {{baseUrl}}/recados/2/
+DELETE  {{baseUrl}}/recados/1/
 
 ### AppControllerGetHello
 

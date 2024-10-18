@@ -10,6 +10,8 @@ import {
   Post,
 } from '@nestjs/common';
 import { RecadosService } from './recados.service';
+import { CreateRecadoDto } from './dto/create-recado.dto';
+import { UpdateRecadoDto } from './dto/update-recado.dto';
 
 @Controller('recados')
 export class RecadosController {
@@ -26,18 +28,15 @@ export class RecadosController {
     return this.RecadosService.findOne(id);
   }
   @Post()
-  create(@Body() body: any) {
-    return this.RecadosService.create(body);
+  create(@Body() createRecadoDto: CreateRecadoDto) {
+    return this.RecadosService.create(createRecadoDto);
   }
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: any) {
-    return {
-      id,
-      ...body,
-    };
+  update(@Param('id') id: string, @Body() updateRecadoDto: UpdateRecadoDto) {
+    return this.RecadosService.update(id, updateRecadoDto);
   }
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `Essa rota APAGA o recado com id ${id}`;
+    return this.RecadosService.remove(id);
   }
 }
