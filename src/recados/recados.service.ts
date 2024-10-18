@@ -20,8 +20,8 @@ export class RecadosService {
   findAll() {
     return this.recados;
   }
-  findOne(id: string) {
-    const recado = this.recados.find(item => item.id === Number(id));
+  findOne(id: number) {
+    const recado = this.recados.find(item => item.id === id);
 
     if (recado) return recado;
 
@@ -61,8 +61,8 @@ export class RecadosService {
     return this.recados[recadoExistenteIndex];
   }
 
-  remove(id: string) {
-    const recadoExistenteIndex = this.recados.findIndex(item => item.id == +id);
+  remove(id: number) {
+    const recadoExistenteIndex = this.recados.findIndex(item => item.id == id);
 
     if (recadoExistenteIndex < 0) {
       throw new NotFoundException('indice não encontrado');

@@ -16,11 +16,9 @@ POST  {{baseUrl}}/recados/
 Content-Type: application/json
 
   {
-    "texto": "Novo Recado1sssss",
+    "texto": "Novo teste",
     "de": "Joana",
-    "para": "joãos",
-    "lido": false,
-    "data": "2024-10-17T15:29:32.440Z"
+    "para": "joãos"
   }
 
 ### Atualiza um recado
