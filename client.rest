@@ -18,7 +18,7 @@ Content-Type: application/json
   {
     "texto": "Novo Recado1sssss",
     "de": "Joana",
-    "para": "joão",
+    "para": "joãos",
     "lido": false,
     "data": "2024-10-17T15:29:32.440Z"
   }
@@ -28,9 +28,9 @@ PATCH  {{baseUrl}}/recados/2/
 Content-Type: application/json
 
   {
-      "texto": "Novo Recado atualizadossasdas",
+      "texto": "Nasasa",
       "de": "Joana",
-      "para": "joão",
+      "para": "joãos",
       "lido": false,
       "data": "2024-10-17T15:29:32.440Z"
   }
