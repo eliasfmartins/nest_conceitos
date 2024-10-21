@@ -53,9 +53,13 @@ export class RecadosService {
     return this.recadoRepository.save(recado);
   }
   async update(id: number, updateRecadoDto: UpdateRecadoDto) {
+    const partialUpdateRecadoDto = {
+      lido: updateRecadoDto?.lido,
+      texto: updateRecadoDto?.texto,
+    };
     const recado = await this.recadoRepository.preload({
       id,
-      ...updateRecadoDto,
+      ...partialUpdateRecadoDto,
     });
     if (!recado) {
       throw new NotFoundException('recado não encontrado');
