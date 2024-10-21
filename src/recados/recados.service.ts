@@ -42,45 +42,36 @@ export class RecadosService {
     // );
     throw new NotFoundException('Recado não encontrado');
   }
-  create(createRecadoDto: CreateRecadoDto) {
-    this.lastId++;
-    const id = this.lastId;
-    const newRecado = {
-      id,
+  async create(createRecadoDto: CreateRecadoDto) {
+    const novoRecado = {
       ...createRecadoDto,
       lido: false,
       data: new Date(),
     };
-    this.recados.push(newRecado);
-    return newRecado;
+
+    const recado = await this.recadoRepository.create(novoRecado);
+    return this.recadoRepository.save(recado);
   }
-  update(id: string, updateRecadoDto: UpdateRecadoDto) {
-    const recadoExistenteIndex = this.recados.findIndex(item => item.id == +id);
-
-    if (recadoExistenteIndex < 0) {
-      throw new NotFoundException('indice não encontrado');
+  async update(id: number, updateRecadoDto: UpdateRecadoDto) {
+    const recado = await this.recadoRepository.preload({
+      id,
+      ...updateRecadoDto,
+    });
+    if (!recado) {
+      throw new NotFoundException('recado não encontrado');
     }
-
-    if (recadoExistenteIndex >= 0) {
-      const recadoExistente = this.recados[recadoExistenteIndex];
-
-      this.recados[recadoExistenteIndex] = {
-        ...recadoExistente,
-        ...updateRecadoDto,
-      };
-    }
-    return this.recados[recadoExistenteIndex];
-  }
-
-  remove(id: number) {
-    const recadoExistenteIndex = this.recados.findIndex(item => item.id == id);
-
-    if (recadoExistenteIndex < 0) {
-      throw new NotFoundException('indice não encontrado');
-    }
-
-    const recado = this.recados[recadoExistenteIndex];
-    this.recados.splice(recadoExistenteIndex, 1);
+    await this.recadoRepository.save(recado);
     return recado;
+  }
+
+  async remove(id: number) {
+    // const recadoExistenteIndex = this.recados.findIndex(item => item.id == id);
+    const recado = await this.recadoRepository.findOneBy({
+      id,
+    });
+    if (!recado) {
+      throw new NotFoundException('recado não encontrado');
+    }
+    return this.recadoRepository.remove(recado);
   }
 }
