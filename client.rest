@@ -22,19 +22,16 @@ Content-Type: application/json
   }
 
 ### Atualiza um recado
-PATCH  {{baseUrl}}/recados/2/
+PATCH  {{baseUrl}}/recados/7/
 Content-Type: application/json
 
   {
-      "texto": "Nasasa",
-      "de": "Joana",
-      "para": "joãos",
-      "lido": false,
-      "data": "2024-10-17T15:29:32.440Z"
+      "texto": "teste de textossss"
   }
 
+
 ### Apaga um recado
-DELETE  {{baseUrl}}/recados/4/
+DELETE  {{baseUrl}}/recados/3/
 
 ### AppControllerGetHello
 

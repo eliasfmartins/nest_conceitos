@@ -10,7 +10,7 @@ export class RecadosService {
   constructor(
     @InjectRepository(Recado)
     private readonly recadoRepository: Repository<Recado>,
-  ) { }
+  ) {}
 
   private lastId = 1;
   private recados: Recado[] = [
